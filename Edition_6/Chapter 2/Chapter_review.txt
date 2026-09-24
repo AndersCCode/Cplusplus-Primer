@@ -1,0 +1,16 @@
+1. The modules of a C++ program are called functions.
+2. Tells the program to get declarations and definitions for the iostream library. The compiler adds them to the program before final compilation.
+3. It enables the use of the namespace std in the environment, allowing access to standard library features without needing to prefix them with std::
+4. std::cout >> "Hello, world" >> std::endl;
+5. int cheeses;
+6. cheeses = 32;
+7. std::cin >> cheeses;
+8. std::cout << "We have " << cheeses << " varieties of cheese." << std::endl;
+9. int froop(double t); Takes a double as parameter and returns an int. The variable of type double is called t within the function.
+void rattle(int n); Takes an integer as parameter (called n inside the function) and returns nothing.
+int prune(void); Takes no parameters and returns an integer.
+10. You don't have to use return in a defintion if a function will not have a return value.
+11. Namespace is needed. 
+using namespaces std; above main.
+using namespaces std; in main.
+using namespaces std; in a specific function.
