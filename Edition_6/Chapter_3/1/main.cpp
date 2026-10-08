@@ -1,8 +1,14 @@
 #include <iostream>
 
-int main() {
+constexpr int kFoot = 12;   // Foot -> Inches
 
-    unsigned int test;
+int main() {
     
-    return;
+   int height;
+
+   std::cout << "What is your height (inches) ? __" << '\b' << '\b';
+   std::cin >> height;
+   std::cout << "Your height is " << height/kFoot << " feet and " << height % kFoot << " inches" << std::endl;
+     
+return 0;
 }

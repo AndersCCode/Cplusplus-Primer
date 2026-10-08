@@ -1,0 +1,62 @@
+1. To provide a suitable type for a wide range of needs.
+2a. short a = 80;
+2b. unsigned int b = 42110
+2c. long c = 3000000000;
+3. 
+* Safe casting - check to see if a one integer safely fit into another.
+* Stream failure flags when reading from std::cin or std::stringstream flags if input 
+value exceeds the limits of the target type.
+Unsigned integers wrap around UINT_MAX + 1 -> 0
+Signed integers - INT_MAX is undefined behaviour.
+* External compiler and tooling safeguards
+    - Compiler sanitizers (Runtime crash on overflow)
+    - Compiler warnings (-Wall -Wextra -Wconversion)
+4.  33L - 33 is a long 
+    33 - 33 is an int
+5.  char grade = 65;    // only assigns A on systems that use ASCII
+    char grade = 'A';   // works for every code system
+
+    65 is type int constant
+    'A' is a type char constant
+
+6.  char c = 88;
+    std::cout << c << std::endl;
+
+    std::cout << static_cast<char>(88) << std::endl;
+
+    std::cout.put(88) << std::endl;
+
+7.  long -> double 
+    double has 53 bits of precision which safely stores 15 decimal digits.
+    Is syntactically correct. Semantically it is unsafe for large numbers. The safe range is -2^53 and 2^53.
+
+    long long -> double 
+    Is syntactically correct. Semantically it is unsafe for large numbers. The safe range is -2^53 and 2^53.
+
+8a. 8 * 9 + 2 = (8 * 9) + 2 = 74
+8b. 6 * 3 / 4 = (6 * 3) / 4 = 18 / 4 = 4 (only integer part)
+8c. 3 / 4 * 6 = 0 * 6 = 0
+8d. 6.0 * 3 / 4 = (6.0 * 3) / 4 = 18.0 / 4 = 4.5
+8e. 15 % 4 = 3 
+
+9. 
+double x1 = 1;
+    double x2 = 2;
+    int y = 0;
+    int result = 0;
+
+    y = static_cast<int>(x1) + static_cast<int>(x2);
+    std::cout << "y = " << y << " type = " << typeid(y).name() << std::endl;
+    std::cout << " type = " << typeid(y).name() << std::endl;
+    std::cout << " type = " << boost::typeindex::type_id_with_cvr<decltype(y)>().pretty_name() << std::endl;
+
+    result = static_cast<int>(x1 + x2);
+    std::cout << "result = " << result << " type = " << typeid(result).name() << std::endl;
+    std::cout << " type = " << typeid(result).name() << std::endl;
+    std::cout << " type = " << boost::typeindex::type_id_with_cvr<decltype(result)>().pretty_name() << std::endl;
+
+10a. auto cars = 15; -> int
+10b. auto iou = 150.37f; -> float
+10c. auto level = 'B'; char
+10d. auto crat = U'/U00002155'; -> vchar32_t
+10e. auto fract = 8.25f/2.5; float / double (default floating-point number) -> double
