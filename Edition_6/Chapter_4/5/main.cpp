@@ -1,19 +1,20 @@
 #include <iostream>
 #include <string>
 
+struct CandyBar 
+{
+    char name[50];
+    float weight;
+    int energy;
+};
+
 int main()
 {
-    struct CandyBar 
+    CandyBar snack = {"Mocha Much", 2.3, 350};
 
-    std::cout << "Enter your first name: ";
-    std::string firstName;
-    std::cin >> firstName;
-    
-    std::cout << "Enter your last name: ";
-    std::string lastName;
-    std::cin >> lastName;
-    
-    std::cout << "Here is the information in a single string: " << lastName + ", " + firstName << std::endl;
+    std::cout << snack.name << std::endl;
+    std::cout << snack.weight << std::endl;
+    std::cout << snack.energy << std::endl;
     
 return 0;
 }
